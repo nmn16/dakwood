@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102c2a">
+  <title>Kenchain Groups | Stays, Trips & Logistics</title>
+  <meta name="description" content="Book a comfortable stay, plan a trip, explore adventures, and send parcels with Kenchain Groups.">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Kenchain Groups home"><span class="brand-mark">K</span><span>kenchain<span class="brand-light"> groups</span></span></a>
+  <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false">Menu</button>
+  <nav id="nav" aria-label="Main navigation">
+    <a href="#hospitality">Hospitality</a>
+    <a href="#tours">Tours &amp; Travels</a>
+    <a href="#adventures">Adventures</a>
+    <a href="#courier">Courier</a>
+    <a href="#contact" class="nav-cta">Contact us</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero section-wrap">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> One group. Four specialist services.</p>
+      <h1>Good journeys start with <span>good planning.</span></h1>
+      <p class="hero-intro">Find your stay, book a getaway, make room for adventure, or move a parcel. Each service has its own team and booking flow.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="#tours">Explore trips <span aria-hidden="true">↗</span></a><a class="text-link" href="#hospitality">Find a stay <span aria-hidden="true">↓</span></a></div>
+      <div class="hero-proof"><span>01 / Hospitality</span><span>02 / Tours &amp; Travels</span><span>03 / Adventures</span><span>04 / Courier</span></div>
+    </div>
+    <div class="hero-art hero-photo">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&amp;fit=crop&amp;w=1500&amp;q=85" alt="A welcoming resort framed by tropical greenery and a swimming pool" fetchpriority="high">
+      <div class="hero-photo-shade"></div>
+      <div class="art-caption"><span>THE NEXT CHAPTER</span><strong>Out there, waiting.</strong></div>
+      <span class="hero-photo-pill">Stay · Explore · Discover</span>
+    </div>
+  </section>
+
+  <section class="section-block travel-film-section" aria-labelledby="film-title">
+    <div class="section-wrap travel-film-layout">
+      <div class="travel-film-copy">
+        <p class="eyebrow">A little inspiration before you go</p>
+        <h2 id="film-title">Let the journey begin.</h2>
+        <p class="section-lead">From quiet resort mornings to big-sky views, find the kind of escape you want to come back talking about.</p>
+        <div class="film-meta"><span class="film-play-mark" aria-hidden="true">▶</span><span><strong>Destination inspiration</strong><small>Travel film · 7 seconds</small></span></div>
+        <p class="media-credit">Video by <a href="https://www.pexels.com/video/drone-shot-of-hotel-and-resort-with-a-mountain-view-4185232/" target="_blank" rel="noopener noreferrer">Grisha Grishkoff on Pexels</a>.</p>
+      </div>
+      <figure class="travel-film">
+        <video controls preload="none" playsinline poster="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&amp;fit=crop&amp;w=1300&amp;q=82" aria-label="Aerial video of a resort with pools and mountain views">
+          <source src="https://videos.pexels.com/video-files/4185232/4185232-hd_1920_1080_25fps.mp4" type="video/mp4">
+          Your browser does not support embedded video. <a href="https://www.pexels.com/video/drone-shot-of-hotel-and-resort-with-a-mountain-view-4185232/">Watch the travel film on Pexels</a>.
+        </video>
+        <figcaption>Dream the destination. We’ll help with the details.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section-block hospitality-section" id="hospitality">
+    <div class="section-wrap">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / Stay well</p><h2>Hospitality</h2><p class="section-lead">A place to land, recharge and feel looked after. Browse accommodation and send a stay request.</p></div>
+        <div class="section-tag tag-gold">Rooms &amp; stays</div>
+      </div>
+      <div id="property-list" class="listing-grid" aria-live="polite"><p class="loading-state">Loading places to stay…</p></div>
+      <div class="booking-panel">
+        <div class="panel-intro"><p class="eyebrow">Make it yours</p><h3>Request a stay</h3><p>Submit your preferred dates. The hospitality team will review room availability and confirm the reservation with you.</p><div class="flow-steps"><span><b>1</b> Choose stay</span><span><b>2</b> Add dates</span><span><b>3</b> Receive reference</span></div></div>
+        <form id="hospitality-form" class="form-grid">
+          <label class="field field-wide">Accommodation<select id="hotel-property" name="property_id" required><option value="">Loading stays…</option></select></label>
+          <label class="field">Check-in<input name="check_in" id="check-in" type="date" required></label>
+          <label class="field">Check-out<input name="check_out" id="check-out" type="date" required></label>
+          <label class="field">Guests<input name="guests" type="number" min="1" max="40" value="2" required></label>
+          <label class="field">Rooms<input name="rooms_requested" type="number" min="1" max="10" value="1" required></label>
+          <label class="field">Full name<input name="full_name" autocomplete="name" maxlength="100" required></label>
+          <label class="field">Phone number<input name="contact" autocomplete="tel" maxlength="150" required></label>
+          <label class="field field-wide">Email address<input name="email" type="email" autocomplete="email" maxlength="254" required></label>
+          <label class="field field-wide">Special requests <span class="optional">Optional</span><textarea name="special_requests" rows="3" maxlength="1000" placeholder="Accessibility needs, arrival time, or preferences"></textarea></label>
+          <div class="field-wide form-bottom"><button class="btn btn-dark" type="submit">Request a stay <span aria-hidden="true">↗</span></button><p class="form-message" id="hospitality-message" role="status" aria-live="polite"></p></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block tours-section" id="tours">
+    <div class="section-wrap">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / Go somewhere</p><h2>Tours &amp; Travels</h2><p class="section-lead">Curated itineraries for weekend escapes, domestic holidays, international trips and group travel.</p></div>
+        <div class="section-tag tag-teal">Trips &amp; packages</div>
+      </div>
+      <div id="tour-list" class="listing-grid tour-grid" aria-live="polite"><p class="loading-state">Loading tour packages…</p></div>
+      <div class="booking-panel tour-booking-panel">
+        <div class="panel-intro"><p class="eyebrow">Plan the route</p><h3>Book a trip</h3><p>Choose a package and departure date. Your request is saved to the database so the travel team can follow up.</p><div class="flow-steps"><span><b>1</b> Pick a package</span><span><b>2</b> Set travel date</span><span><b>3</b> Confirm itinerary</span></div></div>
+        <form id="tour-form" class="form-grid">
+          <label class="field field-wide">Tour package<select id="tour-package" name="package_id" required><option value="">Loading packages…</option></select></label>
+          <label class="field">Departure date<input name="travel_date" id="travel-date" type="date" required></label>
+          <label class="field">Travellers<input name="travelers" type="number" min="1" max="100" value="2" required></label>
+          <label class="field">Full name<input name="full_name" autocomplete="name" maxlength="100" required></label>
+          <label class="field">Phone number<input name="contact" autocomplete="tel" maxlength="150" required></label>
+          <label class="field field-wide">Email address<input name="email" type="email" autocomplete="email" maxlength="254" required></label>
+          <label class="field field-wide">Special requests <span class="optional">Optional</span><textarea name="special_requests" rows="3" maxlength="1000" placeholder="Pickup location, interests, or accessibility needs"></textarea></label>
+          <div class="field-wide form-bottom"><button class="btn btn-dark" type="submit">Request this trip <span aria-hidden="true">↗</span></button><p class="form-message" id="tour-message" role="status" aria-live="polite"></p></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block adventure-section" id="adventures">
+    <div class="section-wrap division-layout">
+      <div><p class="eyebrow">03 / Take the scenic route</p><h2>Adventures</h2><p class="section-lead">Get outside with guided experiences for first-timers, weekend wanderers and teams who like a challenge.</p><a class="btn btn-light" href="#contact" data-service="adventures">Ask about adventures <span aria-hidden="true">↗</span></a></div>
+      <div class="service-points"><article><span>01</span><div><h3>Trekking &amp; camping</h3><p>Guided trails, overnight camps and weekend escapes.</p></div></article><article><span>02</span><div><h3>Water &amp; air sports</h3><p>Rafting, kayaking and other experiences with trained operators.</p></div></article><article><span>03</span><div><h3>Team outings</h3><p>Group activities and outdoor challenges built around your team.</p></div></article></div>
+    </div>
+  </section>
+
+  <section class="section-block courier-section" id="courier">
+    <div class="section-wrap courier-layout">
+      <div><p class="eyebrow">04 / On the move</p><h2>Courier</h2><p class="section-lead">From important documents to everyday parcels, keep an eye on the journey from pickup to delivery.</p><div class="courier-features"><span>Pickup &amp; delivery</span><span>Tracking updates</span><span>Business parcels</span></div><figure class="courier-photo"><img src="https://images.pexels.com/photos/4440800/pexels-photo-4440800.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Cardboard parcels stacked and ready for shipping" loading="lazy"><figcaption>Every parcel has a journey.</figcaption></figure></div>
+      <form id="track-form" class="track-card"><div class="track-icon">↗</div><h3>Track a parcel</h3><p>Enter the tracking number shared with you.</p><label for="track-id">Tracking number</label><div class="inline-input"><input id="track-id" required maxlength="16" placeholder="e.g. KC1234567890"><button class="btn btn-dark" type="submit">Track</button></div><div class="result-box" id="track-result" role="status" aria-live="polite"></div></form>
+    </div>
+  </section>
+
+  <section class="section-block status-section" id="booking-status">
+    <div class="section-wrap status-layout"><div><p class="eyebrow">Already sent a request?</p><h2>Check your booking</h2><p class="section-lead">Use the reference shown after submitting a stay or trip request to see its latest status.</p></div><form id="status-form" class="status-form"><label for="booking-ref">Booking reference</label><div class="inline-input"><input id="booking-ref" required maxlength="16" placeholder="HSP-1A2B3C4D or TRV-1A2B3C4D"><button class="btn btn-dark" type="submit">Check status</button></div><div id="status-result" class="result-box" role="status" aria-live="polite"></div></form></div>
+  </section>
+
+  <section class="section-block contact-section" id="contact">
+    <div class="section-wrap contact-layout"><div><p class="eyebrow">Need a hand?</p><h2>Let's talk about it.</h2><p class="section-lead">For adventures, courier support, corporate queries or anything else, send the team a note.</p><div class="contact-details"><span>✉ hello@kenchaingroups.com</span><span>◎ India-wide service</span></div></div>
+      <form id="contact-form" class="contact-card"><label class="field">Your name<input name="name" autocomplete="name" maxlength="100" required></label><label class="field">Phone or email<input name="contact" maxlength="150" required></label><label class="field">What can we help with?<select name="service" id="contact-service"><option value="general">General enquiry</option><option value="adventures">Adventures</option><option value="courier">Courier</option></select></label><label class="field">Message<textarea name="message" rows="4" maxlength="2000" placeholder="Tell us a little about what you need"></textarea></label><button class="btn btn-primary" type="submit">Send enquiry <span aria-hidden="true">↗</span></button><p class="form-message" id="form-message" role="status" aria-live="polite"></p></form>
+    </div>
+  </section>
+</main>
+<footer><div class="section-wrap footer-inner"><a class="brand" href="#top"><span class="brand-mark">K</span><span>kenchain<span class="brand-light"> groups</span></span></a><p>Stays, trips, adventures and logistics. Thoughtfully connected.</p><span>© <span id="year"></span> Kenchain Groups</span></div></footer>
+<script src="/static/js/main.js" defer></script>
+</body>
+</html>
