@@ -1,10 +1,48 @@
 /**
  * Kenchain Groups × Dakwood Furniture & Interiors Pvt. Ltd.
- * Core Interactive Scripts
+ * Core Interactive Scripts — Hero Carousel, Collection Carousels & Lightbox
  */
 
 (function () {
   'use strict';
+
+  /* ==========================================================================
+     Central Asset Catalog & Mapping
+     ========================================================================== */
+  const ASSET_CATALOG = {
+    hero: [
+      {
+        id: "hero-living-room",
+        title: "Contemporary Living Room & TV Wall",
+        caption: "01 · LIVING ROOM & TV WALL",
+        url: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=88"
+      },
+      {
+        id: "hero-modular-kitchen",
+        title: "Premium Modular Kitchen & Cabinetry",
+        caption: "02 · MODULAR KITCHEN & CABINETRY",
+        url: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=2200&q=88"
+      },
+      {
+        id: "hero-wood-panels",
+        title: "Living Room with Fluted Wood Wall Panels",
+        caption: "03 · FLUTED WOOD WALL PANELS",
+        url: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2200&q=88"
+      },
+      {
+        id: "hero-showcase",
+        title: "Built-In Showcase & Display Cabinetry",
+        caption: "04 · BUILT-IN SHOWCASE CABINETRY",
+        url: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=2200&q=88"
+      },
+      {
+        id: "hero-coordinated-living",
+        title: "Coordinated Living Space & Architectural Woodwork",
+        caption: "05 · COORDINATED RESIDENTIAL LIVING",
+        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=88"
+      }
+    ]
+  };
 
   // DOM Query Helpers
   const $ = (selector, context = document) => context.querySelector(selector);
@@ -111,7 +149,201 @@
   });
 
   /* ==========================================================================
-     3. Product Collections Category Filters
+     3. Hero Background-Image Carousel
+     ========================================================================== */
+  const heroSlides = $$('.hero-slide');
+  const heroDots = $$('.hero-indicator-dot');
+  const heroPrev = $('#heroPrev');
+  const heroNext = $('#heroNext');
+  const heroSlideNum = $('#heroSlideNum');
+  const heroSection = $('#home');
+
+  let currentHeroIndex = 0;
+  let heroTimer = null;
+  const HERO_INTERVAL = 6000; // 6 seconds
+
+  function setHeroSlide(index) {
+    if (!heroSlides.length) return;
+    currentHeroIndex = (index + heroSlides.length) % heroSlides.length;
+
+    heroSlides.forEach((slide, i) => {
+      const isActive = i === currentHeroIndex;
+      slide.classList.toggle('active', isActive);
+      slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+    });
+
+    heroDots.forEach((dot, i) => {
+      const isActive = i === currentHeroIndex;
+      dot.classList.toggle('active', isActive);
+      dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    if (heroSlideNum) {
+      heroSlideNum.textContent = String(currentHeroIndex + 1).padStart(2, '0');
+    }
+  }
+
+  function startHeroTimer() {
+    stopHeroTimer();
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+      heroTimer = setInterval(() => {
+        setHeroSlide(currentHeroIndex + 1);
+      }, HERO_INTERVAL);
+    }
+  }
+
+  function stopHeroTimer() {
+    if (heroTimer) {
+      clearInterval(heroTimer);
+      heroTimer = null;
+    }
+  }
+
+  if (heroSlides.length) {
+    heroPrev?.addEventListener('click', () => {
+      setHeroSlide(currentHeroIndex - 1);
+      startHeroTimer();
+    });
+
+    heroNext?.addEventListener('click', () => {
+      setHeroSlide(currentHeroIndex + 1);
+      startHeroTimer();
+    });
+
+    heroDots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        setHeroSlide(i);
+        startHeroTimer();
+      });
+    });
+
+    // Pause on hover or focus
+    if (heroSection) {
+      heroSection.addEventListener('mouseenter', stopHeroTimer);
+      heroSection.addEventListener('mouseleave', startHeroTimer);
+      heroSection.addEventListener('focusin', stopHeroTimer);
+      heroSection.addEventListener('focusout', startHeroTimer);
+
+      // Mobile Touch Swipe for Hero
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      heroSection.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopHeroTimer();
+      }, { passive: true });
+
+      heroSection.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 45) {
+          if (diff > 0) {
+            setHeroSlide(currentHeroIndex + 1); // Swiped left -> next
+          } else {
+            setHeroSlide(currentHeroIndex - 1); // Swiped right -> prev
+          }
+        }
+        startHeroTimer();
+      }, { passive: true });
+    }
+
+    // Keyboard navigation when hero or its controls are focused
+    window.addEventListener('keydown', (e) => {
+      if (document.activeElement && (document.activeElement.closest('.hero-carousel-controls') || document.activeElement === heroSection)) {
+        if (e.key === 'ArrowLeft') {
+          setHeroSlide(currentHeroIndex - 1);
+          startHeroTimer();
+        } else if (e.key === 'ArrowRight') {
+          setHeroSlide(currentHeroIndex + 1);
+          startHeroTimer();
+        }
+      }
+    });
+
+    startHeroTimer();
+  }
+
+  /* ==========================================================================
+     4. Independent Multi-Image Carousels for Every Collection Card
+     ========================================================================== */
+  $$('.product-carousel-box').forEach(box => {
+    const slides = $$('.carousel-slide', box);
+    const prevBtn = $('.col-arrow-prev', box);
+    const nextBtn = $('.col-arrow-next', box);
+    const dots = $$('.col-dot', box);
+    const countLabel = $('.card-slide-count', box);
+    const card = box.closest('.collection-card');
+
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+
+    function updateCardSlide(index) {
+      currentIndex = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentIndex);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+
+      if (countLabel) {
+        countLabel.textContent = `${String(currentIndex + 1).padStart(2, '0')}/${String(slides.length).padStart(2, '0')}`;
+      }
+    }
+
+    prevBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      updateCardSlide(currentIndex - 1);
+    });
+
+    nextBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      updateCardSlide(currentIndex + 1);
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateCardSlide(idx);
+      });
+    });
+
+    // Touch swipe support for this specific product card
+    let touchStartX = 0;
+    box.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    box.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          updateCardSlide(currentIndex + 1);
+        } else {
+          updateCardSlide(currentIndex - 1);
+        }
+      }
+    }, { passive: true });
+
+    // Store helper to get current active image & caption for modal
+    box.getActiveSlideData = function () {
+      const activeSlide = slides[currentIndex];
+      const img = $('img', activeSlide);
+      return {
+        src: img ? img.src : '',
+        caption: activeSlide.dataset.caption || '',
+        sub: activeSlide.dataset.sub || ''
+      };
+    };
+  });
+
+  /* ==========================================================================
+     5. Product Collections Category Filters
      ========================================================================== */
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -127,7 +359,7 @@
   });
 
   /* ==========================================================================
-     4. Accessible Lightbox Modal
+     6. Accessible Lightbox Modal
      ========================================================================== */
   function openModal(title, category, description, imageUrl) {
     if (!modal) return;
@@ -161,17 +393,31 @@
     }
   }
 
-  // Collection modal triggers
+  // Collection modal triggers (using the current active slide of the card)
   $$('.open-modal-btn, .lightbox-trigger').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       const card = btn.closest('.collection-card');
-      const img = card ? $('img', card) : null;
+      const box = card ? $('.product-carousel-box', card) : null;
+      let imgSrc = '';
+      let slideCaption = '';
+
+      if (box && typeof box.getActiveSlideData === 'function') {
+        const slideData = box.getActiveSlideData();
+        imgSrc = slideData.src;
+        if (slideData.caption) {
+          slideCaption = ` [${slideData.caption}]`;
+        }
+      } else if (card) {
+        const img = $('img', card);
+        imgSrc = img ? img.src : '';
+      }
+
       openModal(
-        btn.dataset.title,
+        btn.dataset.title + slideCaption,
         btn.dataset.category,
         btn.dataset.description,
-        img ? img.src : ''
+        imgSrc
       );
     });
   });
@@ -199,7 +445,7 @@
   });
 
   /* ==========================================================================
-     5. Toast Notifications & Clipboard Copy
+     7. Toast Notifications & Clipboard Copy
      ========================================================================== */
   function showToast(message) {
     if (!toast) return;
@@ -232,7 +478,7 @@
   }
 
   /* ==========================================================================
-     6. Video Player Robustness & Fallback Handling
+     8. Video Player Robustness & Fallback Handling
      ========================================================================== */
   $$('.video-media-box video').forEach(video => {
     // If video load errors out (e.g. offline, CORS or blocked download),
@@ -260,7 +506,7 @@
   });
 
   /* ==========================================================================
-     7. Contact Form Validation & Submission
+     9. Contact Form Validation & Submission
      ========================================================================== */
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {

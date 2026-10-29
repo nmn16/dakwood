@@ -54,13 +54,42 @@
 
   <main>
 
-    <!-- 01 / HOME: Hero Section -->
-    <section class="hero-section" id="home">
-      <div class="hero-media-wrapper">
-        <img class="hero-bg-image" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=88" alt="Contemporary bright living room with bespoke wooden furniture and warm architectural lighting" fetchpriority="high">
-        <div class="hero-scrim"></div>
+    <!-- 01 / HOME: Hero Section with Full-Width Background Carousel -->
+    <section class="hero-section" id="home" aria-roledescription="carousel" aria-label="Featured Interiors Carousel">
+      
+      <!-- Full-Width Background Carousel Slides -->
+      <div class="hero-carousel-container" id="heroCarousel">
+        
+        <!-- Slide 1: Contemporary Living Room with Wooden TV Wall -->
+        <div class="hero-slide active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 5: Contemporary Living Room with Wooden TV Wall" style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=88');">
+          <span class="slide-caption-tag">01 · LIVING ROOM &amp; TV WALL</span>
+        </div>
+
+        <!-- Slide 2: Premium Modular Kitchen with Warm Wood Cabinetry -->
+        <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 5: Premium Modular Kitchen with Cabinets and Countertops" style="background-image: url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=2200&q=88');">
+          <span class="slide-caption-tag">02 · MODULAR KITCHEN &amp; CABINETRY</span>
+        </div>
+
+        <!-- Slide 3: Living Room with Decorative Wooden Wall Panels -->
+        <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 5: Living Room with Decorative Wooden Wall Panels" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2200&q=88');">
+          <span class="slide-caption-tag">03 · FLUTED WOOD WALL PANELS</span>
+        </div>
+
+        <!-- Slide 4: Elegant Showcase & Display Cabinet Installation -->
+        <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="Slide 4 of 5: Elegant Showcase and Display-Cabinet Installation" style="background-image: url('https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=2200&q=88');">
+          <span class="slide-caption-tag">04 · BUILT-IN SHOWCASE CABINETRY</span>
+        </div>
+
+        <!-- Slide 5: Modern Living Space with Coordinated Cabinetry & Furniture -->
+        <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="Slide 5 of 5: Modern Living Space with Coordinated Cabinetry and Furniture" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=88');">
+          <span class="slide-caption-tag">05 · COORDINATED RESIDENTIAL LIVING</span>
+        </div>
+
+        <!-- Balanced Light Luxury Scrim Overlay -->
+        <div class="hero-scrim-overlay" aria-hidden="true"></div>
       </div>
 
+      <!-- Hero Static Content Overlay -->
       <div class="hero-inner wrap">
         <div class="hero-content">
           <div class="hero-badge">
@@ -98,8 +127,22 @@
           </div>
         </div>
 
-        <div class="hero-section-index" aria-hidden="true">
-          <span class="index-accent">01</span> / 07 &nbsp;·&nbsp; HOME
+        <!-- Carousel Interactive Controls -->
+        <div class="hero-carousel-controls">
+          <div class="hero-arrows">
+            <button class="hero-nav-arrow" id="heroPrev" aria-label="Previous background slide">‹</button>
+            <div class="hero-indicators" id="heroDots" role="tablist" aria-label="Hero carousel navigation">
+              <button class="hero-indicator-dot active" role="tab" aria-selected="true" aria-label="Slide 1: Contemporary Living Room" data-index="0"></button>
+              <button class="hero-indicator-dot" role="tab" aria-selected="false" aria-label="Slide 2: Modular Kitchen" data-index="1"></button>
+              <button class="hero-indicator-dot" role="tab" aria-selected="false" aria-label="Slide 3: Wood Wall Panels" data-index="2"></button>
+              <button class="hero-indicator-dot" role="tab" aria-selected="false" aria-label="Slide 4: Showcase & Display" data-index="3"></button>
+              <button class="hero-indicator-dot" role="tab" aria-selected="false" aria-label="Slide 5: Coordinated Living" data-index="4"></button>
+            </div>
+            <button class="hero-nav-arrow" id="heroNext" aria-label="Next background slide">›</button>
+          </div>
+          <div class="hero-slide-counter">
+            <span id="heroSlideNum" class="counter-curr">01</span> / <span class="counter-total">05</span>
+          </div>
         </div>
       </div>
     </section>
@@ -132,10 +175,12 @@
         <p class="section-intro">A collaborative partnership bridging Dakwood's operating furniture and woodworking manufacturing capabilities with Kenchain Groups’ multidisciplinary enterprise perspective.</p>
       </div>
 
-      <!-- Split Company Profiles -->
+      <!-- Split Company Profiles with Relevant Background Imagery -->
       <div class="about-grid">
         <!-- 02.1 Kenchain Groups -->
         <article class="company-card card-kenchain">
+          <div class="card-bg-visual" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="card-glass-scrim"></div>
           <div class="company-card-header">
             <span class="card-kicker">02.1 / THE GROUP PERSPECTIVE</span>
             <h3>Kenchain Groups</h3>
@@ -150,13 +195,12 @@
             <span class="pill">Strategic Ventures</span>
           </div>
           <p class="company-detail">Kenchain brings a macro project perspective to the collaboration, connecting spaces, builder developments, and commercial relations with Dakwood’s specialized furniture fabrication capabilities.</p>
-          <div class="card-visual">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Architectural construction and enterprise vision" loading="lazy">
-          </div>
         </article>
 
         <!-- 02.2 Dakwood Furniture & Interiors -->
         <article class="company-card card-dakwood">
+          <div class="card-bg-visual" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="card-glass-scrim"></div>
           <div class="company-card-header">
             <span class="card-kicker">02.2 / THE MANUFACTURING BASE</span>
             <h3>Dakwood Furniture &amp; Interiors</h3>
@@ -172,51 +216,83 @@
             <span class="pill">TV &amp; Showcase Cabinetry</span>
           </div>
           <p class="company-detail">From precision sizing and edge finishing to final carcass assembly, Dakwood translates timber, boards, and architectural drawings into dependable, beautifully finished residential interiors.</p>
-          <div class="card-visual">
-            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80" alt="Precision woodworking machinery and cabinetry manufacturing" loading="lazy">
-          </div>
         </article>
       </div>
 
       <!-- Association Feature Bar -->
       <div class="association-bar">
-        <div class="assoc-symbol">✦ &nbsp; THE COLLABORATION &nbsp; ✦</div>
-        <div class="assoc-body">
-          <h4>Complementary Strengths Under One Cohesive Offering</h4>
-          <p>By connecting manufacturing know-how directly with project-level design and customer needs, this association provides homeowners, architects, and builders with coordinated cabinetry, furniture, and wall panelling without managing fragmented vendors.</p>
+        <div class="assoc-bg-visual" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="assoc-scrim"></div>
+        <div class="assoc-content-inner">
+          <div class="assoc-symbol">✦ &nbsp; THE COLLABORATION &nbsp; ✦</div>
+          <div class="assoc-body">
+            <h4>Complementary Strengths Under One Cohesive Offering</h4>
+            <p>By connecting manufacturing know-how directly with project-level design and customer needs, this association provides homeowners, architects, and builders with coordinated cabinetry, furniture, and wall panelling without managing fragmented vendors.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 03 / COLLECTIONS: Product Collections Showcase -->
+    <!-- 03 / COLLECTIONS: Product Collections Showcase with Multi-Image Carousels -->
     <section class="collections-section wrap" id="collections">
       <div class="section-head">
         <div class="head-lead">
           <p class="section-kicker">03 / PRODUCT COLLECTIONS</p>
           <h2 class="section-title">Designed for Every Corner<br><em>of Your Home.</em></h2>
         </div>
-        <p class="section-intro">Explore furniture, cabinetry and interior details that bring warmth, functionality and character to modern living.</p>
+        <p class="section-intro">Explore furniture, cabinetry and interior details that bring warmth, functionality and character to modern living. Navigate each collection's image gallery below.</p>
       </div>
 
       <!-- Category Filter Tabs -->
       <div class="collection-filter-bar">
-        <button class="col-filter-btn active" data-filter="all">All Collections <sup>04</sup></button>
+        <button class="col-filter-btn active" data-filter="all">All Collections <sup>05</sup></button>
         <button class="col-filter-btn" data-filter="panels">Wall &amp; Roof Panels</button>
         <button class="col-filter-btn" data-filter="showcases">Showcases &amp; Displays</button>
         <button class="col-filter-btn" data-filter="tv-units">TV Stands &amp; Media</button>
         <button class="col-filter-btn" data-filter="kitchens">Kitchen Stands &amp; Storage</button>
+        <button class="col-filter-btn" data-filter="wardrobes">Wardrobes &amp; Storage</button>
       </div>
 
-      <!-- Four Dedicated Product Collection Cards -->
+      <!-- Five Dedicated Product Collection Cards with Multi-Image Carousels -->
       <div class="collection-grid">
         
-        <!-- 6.1 Wall & Roof Panels -->
-        <article class="collection-card" data-category="panels">
-          <div class="card-image-box">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85" alt="Decorative wooden wall panels and architectural ceiling beams in modern room" loading="lazy">
-            <span class="card-tag">COLLECTION / 01</span>
-            <button class="lightbox-trigger" data-title="Walls That Make a Statement" data-category="Wall &amp; Roof Panels" data-description="Decorative wooden wall panels, fluted slat feature walls, TV backdrop panelling, acoustic timber surfaces, and warm architectural wooden ceiling beams crafted to transform bare rooms into sophisticated living spaces.">View Details ↗</button>
+        <!-- Collection A: Wall & Roof Panels -->
+        <article class="collection-card" data-category="panels" id="col-panels">
+          <div class="product-carousel-box" data-carousel="panels">
+            <div class="carousel-track">
+              <!-- Slide 1 -->
+              <div class="carousel-slide active" data-caption="Fluted Timber Wall Panelling" data-sub="Living room accent wall with vertical fluting">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85" alt="Vertical fluted timber wall cladding in modern living room" loading="lazy">
+              </div>
+              <!-- Slide 2 -->
+              <div class="carousel-slide" data-caption="Wood Slat Feature Wall" data-sub="Full-height slatted timber backdrop installation">
+                <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1200&q=85" alt="Wood slat feature wall panelling behind entryway console" loading="lazy">
+              </div>
+              <!-- Slide 3 -->
+              <div class="carousel-slide" data-caption="Architectural Wooden Ceiling Beams" data-sub="Geometric ceiling rafters and timber finishes">
+                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=85" alt="Architectural wooden ceiling panels and timber rafters" loading="lazy">
+              </div>
+              <!-- Slide 4 -->
+              <div class="carousel-slide" data-caption="Wood Texture &amp; Groove Detailing" data-sub="Close-up of fine timber grains, joints and finish">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=85" alt="Close-up view of wood panel textures, grooves, and surface finishes" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Carousel UI Navigation Overlays -->
+            <button class="col-arrow col-arrow-prev" aria-label="Previous panel image">‹</button>
+            <button class="col-arrow col-arrow-next" aria-label="Next panel image">›</button>
+            
+            <div class="col-carousel-indicator">
+              <span class="col-dot active" data-index="0"></span>
+              <span class="col-dot" data-index="1"></span>
+              <span class="col-dot" data-index="2"></span>
+              <span class="col-dot" data-index="3"></span>
+            </div>
+
+            <div class="card-tag">COLLECTION / 01 · <span class="card-slide-count">01/04</span></div>
+            <button class="lightbox-trigger" data-title="Walls That Make a Statement" data-category="Wall &amp; Roof Panels" data-description="Decorative wooden wall panels, fluted slat feature walls, TV backdrop panelling, acoustic timber surfaces, and warm architectural wooden ceiling beams crafted to transform bare rooms into sophisticated living spaces.">View Fullscreen ↗</button>
           </div>
+
           <div class="card-content">
             <div class="card-meta">
               <span class="meta-label">WALL &amp; CEILING SYSTEMS</span>
@@ -233,13 +309,43 @@
           </div>
         </article>
 
-        <!-- 6.2 Showcases & Display Units -->
-        <article class="collection-card" data-category="showcases">
-          <div class="card-image-box">
-            <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=85" alt="Built-in display showcase with warm illumination and decorative shelves" loading="lazy">
-            <span class="card-tag">COLLECTION / 02</span>
-            <button class="lightbox-trigger" data-title="Display Your Style" data-category="Showcases &amp; Display Units" data-description="Built-in living room showcases, illuminated glass-front display cabinets, open architectural shelving, and custom storage units designed to present curations, books, and fine objects with balanced elegance.">View Details ↗</button>
+        <!-- Collection B: Showcases & Display Units -->
+        <article class="collection-card" data-category="showcases" id="col-showcases">
+          <div class="product-carousel-box" data-carousel="showcases">
+            <div class="carousel-track">
+              <!-- Slide 1 -->
+              <div class="carousel-slide active" data-caption="Built-in Living Room Showcase" data-sub="Integrated architectural display shelves and storage">
+                <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=85" alt="Built-in living room showcase with illuminated display shelves" loading="lazy">
+              </div>
+              <!-- Slide 2 -->
+              <div class="carousel-slide" data-caption="Open Curio Display System" data-sub="Balanced decorative shelving with art &amp; collectibles">
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1200&q=85" alt="Open shelving display unit with art, ceramics and books" loading="lazy">
+              </div>
+              <!-- Slide 3 -->
+              <div class="carousel-slide" data-caption="Glass-Front Display Cabinet" data-sub="Illuminated glass display showcase with timber frame">
+                <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1200&q=85" alt="Glass-front display cabinet with integrated warm lighting" loading="lazy">
+              </div>
+              <!-- Slide 4 -->
+              <div class="carousel-slide" data-caption="Integrated Wall Showcase" data-sub="Full-wall cabinetry with niche display lighting">
+                <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=85" alt="Contemporary wall-mounted display showcase cabinetry" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Carousel UI Navigation Overlays -->
+            <button class="col-arrow col-arrow-prev" aria-label="Previous showcase image">‹</button>
+            <button class="col-arrow col-arrow-next" aria-label="Next showcase image">›</button>
+            
+            <div class="col-carousel-indicator">
+              <span class="col-dot active" data-index="0"></span>
+              <span class="col-dot" data-index="1"></span>
+              <span class="col-dot" data-index="2"></span>
+              <span class="col-dot" data-index="3"></span>
+            </div>
+
+            <div class="card-tag">COLLECTION / 02 · <span class="card-slide-count">01/04</span></div>
+            <button class="lightbox-trigger" data-title="Display Your Style" data-category="Showcases &amp; Display Units" data-description="Built-in living room showcases, illuminated glass-front display cabinets, open architectural shelving, and custom storage units designed to present curations, books, and fine objects with balanced elegance.">View Fullscreen ↗</button>
           </div>
+
           <div class="card-content">
             <div class="card-meta">
               <span class="meta-label">STORAGE &amp; SHOWCASE UNITS</span>
@@ -256,13 +362,43 @@
           </div>
         </article>
 
-        <!-- 6.3 TV Stands & Entertainment Units -->
-        <article class="collection-card" data-category="tv-units">
-          <div class="card-image-box">
-            <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1200&q=85" alt="Modern floating TV console with seamless timber backboard and storage" loading="lazy">
-            <span class="card-tag">COLLECTION / 03</span>
-            <button class="lightbox-trigger" data-title="Make Your Living Space Stand Out" data-category="TV Stands &amp; Entertainment Units" data-description="Full-wall media centres, floating TV consoles, wooden entertainment units, concealed wire management channels, and integrated ambient lighting systems tailored to your living room proportions.">View Details ↗</button>
+        <!-- Collection C: TV Stands & Entertainment Units -->
+        <article class="collection-card" data-category="tv-units" id="col-tv-units">
+          <div class="product-carousel-box" data-carousel="tvUnits">
+            <div class="carousel-track">
+              <!-- Slide 1 -->
+              <div class="carousel-slide active" data-caption="Floating TV Media Console" data-sub="Wall-mounted timber console with wire management">
+                <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1200&q=85" alt="Television mounted above modern floating wooden media console" loading="lazy">
+              </div>
+              <!-- Slide 2 -->
+              <div class="carousel-slide" data-caption="Full-Wall Entertainment Unit" data-sub="Full-height media centre with cabinets and backlighting">
+                <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1200&q=85" alt="Full-wall entertainment unit with mounted TV and integrated storage" loading="lazy">
+              </div>
+              <!-- Slide 3 -->
+              <div class="carousel-slide" data-caption="Low-Profile Wooden TV Console" data-sub="Solid &amp; engineered wood TV stand with soft-close drawers">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=85" alt="Low-profile wooden TV stand with drawers and cable routing" loading="lazy">
+              </div>
+              <!-- Slide 4 -->
+              <div class="carousel-slide" data-caption="Acoustic Timber TV Backdrop" data-sub="Vertical slat TV wall panel with recessed LED lighting">
+                <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1200&q=85" alt="TV mounted on warm timber acoustic wall backdrop with display shelving" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Carousel UI Navigation Overlays -->
+            <button class="col-arrow col-arrow-prev" aria-label="Previous TV unit image">‹</button>
+            <button class="col-arrow col-arrow-next" aria-label="Next TV unit image">›</button>
+            
+            <div class="col-carousel-indicator">
+              <span class="col-dot active" data-index="0"></span>
+              <span class="col-dot" data-index="1"></span>
+              <span class="col-dot" data-index="2"></span>
+              <span class="col-dot" data-index="3"></span>
+            </div>
+
+            <div class="card-tag">COLLECTION / 03 · <span class="card-slide-count">01/04</span></div>
+            <button class="lightbox-trigger" data-title="Make Your Living Space Stand Out" data-category="TV Stands &amp; Entertainment Units" data-description="Full-wall media centres, floating TV consoles, wooden entertainment units, concealed wire management channels, and integrated ambient lighting systems tailored to your living room proportions.">View Fullscreen ↗</button>
           </div>
+
           <div class="card-content">
             <div class="card-meta">
               <span class="meta-label">ENTERTAINMENT &amp; MEDIA CONSOLES</span>
@@ -279,13 +415,43 @@
           </div>
         </article>
 
-        <!-- 6.4 Kitchen Stands & Storage -->
-        <article class="collection-card" data-category="kitchens">
-          <div class="card-image-box">
-            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=85" alt="Bright modular kitchen with warm wood cabinetry, island storage, and ergonomic drawers" loading="lazy">
-            <span class="card-tag">COLLECTION / 04</span>
-            <button class="lightbox-trigger" data-title="Smart Storage. Beautiful Kitchens." data-category="Kitchen Stands &amp; Storage" data-description="Complete modular kitchen cabinet systems, pantry tall units, island cabinetry, under-counter soft-close drawers, overhead lift-up storage, and weather-resistant moisture-balanced carcass materials.">View Details ↗</button>
+        <!-- Collection D: Kitchen Stands & Storage -->
+        <article class="collection-card" data-category="kitchens" id="col-kitchens">
+          <div class="product-carousel-box" data-carousel="kitchens">
+            <div class="carousel-track">
+              <!-- Slide 1 -->
+              <div class="carousel-slide active" data-caption="Modern Modular Island Kitchen" data-sub="Central utility island with base cabinet storage">
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=85" alt="Modern modular kitchen installation with island storage and wood cabinets" loading="lazy">
+              </div>
+              <!-- Slide 2 -->
+              <div class="carousel-slide" data-caption="Base &amp; Overhead Cabinetry" data-sub="Warm wood grain finishes with soft-close hardware">
+                <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=85" alt="Kitchen base and overhead cabinetry with clean stone countertops" loading="lazy">
+              </div>
+              <!-- Slide 3 -->
+              <div class="carousel-slide" data-caption="Pantry Wall &amp; Tall Cabinets" data-sub="Full-height storage units and pull-out organizers">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85" alt="Tall kitchen pantry storage cabinets with integrated appliances" loading="lazy">
+              </div>
+              <!-- Slide 4 -->
+              <div class="carousel-slide" data-caption="Precision Drawer Organization" data-sub="Modular cutlery dividers and heavy-duty runners">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=85" alt="Kitchen cabinetry with drawers, countertops and pull-out storage" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Carousel UI Navigation Overlays -->
+            <button class="col-arrow col-arrow-prev" aria-label="Previous kitchen image">‹</button>
+            <button class="col-arrow col-arrow-next" aria-label="Next kitchen image">›</button>
+            
+            <div class="col-carousel-indicator">
+              <span class="col-dot active" data-index="0"></span>
+              <span class="col-dot" data-index="1"></span>
+              <span class="col-dot" data-index="2"></span>
+              <span class="col-dot" data-index="3"></span>
+            </div>
+
+            <div class="card-tag">COLLECTION / 04 · <span class="card-slide-count">01/04</span></div>
+            <button class="lightbox-trigger" data-title="Smart Storage. Beautiful Kitchens." data-category="Kitchen Stands &amp; Storage" data-description="Complete modular kitchen cabinet systems, pantry tall units, island cabinetry, under-counter soft-close drawers, overhead lift-up storage, and weather-resistant moisture-balanced carcass materials.">View Fullscreen ↗</button>
           </div>
+
           <div class="card-content">
             <div class="card-meta">
               <span class="meta-label">MODULAR KITCHENS &amp; CABINETRY</span>
@@ -299,6 +465,59 @@
               <li>Durable water-resistant finishes &amp; soft-close hardware</li>
             </ul>
             <button class="link-btn open-modal-btn" data-title="Smart Storage. Beautiful Kitchens." data-category="Kitchen Stands &amp; Storage" data-description="Complete modular kitchen cabinet systems, pantry tall units, island cabinetry, under-counter soft-close drawers, overhead lift-up storage, and weather-resistant moisture-balanced carcass materials.">Explore Kitchen Cabinetry ↗</button>
+          </div>
+        </article>
+
+        <!-- Collection E: Wardrobes & Built-in Storage -->
+        <article class="collection-card" data-category="wardrobes" id="col-wardrobes">
+          <div class="product-carousel-box" data-carousel="wardrobes">
+            <div class="carousel-track">
+              <!-- Slide 1 -->
+              <div class="carousel-slide active" data-caption="Floor-to-Ceiling Built-In Wardrobes" data-sub="Seamless bedroom storage with soft-close hinged doors">
+                <img src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=1200&q=85" alt="Floor-to-ceiling built-in wardrobe with soft-close doors and storage" loading="lazy">
+              </div>
+              <!-- Slide 2 -->
+              <div class="carousel-slide" data-caption="Walk-in Wardrobe &amp; Dressing Suite" data-sub="Open wardrobe shelving, garment rails and vanity unit">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=85" alt="Walk-in wardrobe and luxury dressing area cabinetry" loading="lazy">
+              </div>
+              <!-- Slide 3 -->
+              <div class="carousel-slide" data-caption="Contemporary Sliding Door Wardrobe" data-sub="Space-saving sliding panels with warm timber grain">
+                <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=85" alt="Sliding door bedroom wardrobe with elegant wooden panelling" loading="lazy">
+              </div>
+              <!-- Slide 4 -->
+              <div class="carousel-slide" data-caption="Internal Wardrobe Shelves &amp; Drawers" data-sub="Customized compartment layout with accessory storage">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=85" alt="Wardrobe interior storage with shelves, drawers and organizer compartments" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Carousel UI Navigation Overlays -->
+            <button class="col-arrow col-arrow-prev" aria-label="Previous wardrobe image">‹</button>
+            <button class="col-arrow col-arrow-next" aria-label="Next wardrobe image">›</button>
+            
+            <div class="col-carousel-indicator">
+              <span class="col-dot active" data-index="0"></span>
+              <span class="col-dot" data-index="1"></span>
+              <span class="col-dot" data-index="2"></span>
+              <span class="col-dot" data-index="3"></span>
+            </div>
+
+            <div class="card-tag">COLLECTION / 05 · <span class="card-slide-count">01/04</span></div>
+            <button class="lightbox-trigger" data-title="Floor-to-Ceiling Elegance" data-category="Wardrobes &amp; Built-in Storage" data-description="Floor-to-ceiling modular wardrobes, sliding-door and hinged wardrobes, walk-in dressing suites, internal accessory organizers, and durable moisture-sealed joinery crafted for seamless bedroom organization.">View Fullscreen ↗</button>
+          </div>
+
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="meta-label">WARDROBES &amp; BUILT-IN STORAGE</span>
+              <h3 class="card-title">Floor-to-Ceiling Elegance</h3>
+            </div>
+            <p class="card-desc">Bespoke sliding and hinged wardrobes, walk-in dressing rooms, and customized interior drawers built to keep every garment and personal essential impeccably arranged.</p>
+            <ul class="card-bullets">
+              <li>Floor-to-ceiling modular wardrobe systems</li>
+              <li>Sliding &amp; soft-close hinged door options</li>
+              <li>Walk-in wardrobe &amp; dressing suite layouts</li>
+              <li>Custom internal dividers, shelves &amp; drawers</li>
+            </ul>
+            <button class="link-btn open-modal-btn" data-title="Floor-to-Ceiling Elegance" data-category="Wardrobes &amp; Built-in Storage" data-description="Floor-to-ceiling modular wardrobes, sliding-door and hinged wardrobes, walk-in dressing suites, internal accessory organizers, and durable moisture-sealed joinery crafted for seamless bedroom organization.">Explore Wardrobe Storage ↗</button>
           </div>
         </article>
 
@@ -361,7 +580,7 @@
         <p class="section-intro">Explore furniture, cabinetry and interior concepts through moving images, detailed views and finished-space walkthroughs.</p>
       </div>
 
-      <!-- 8 Distinct Residential Videos -->
+      <!-- 8 Distinct Residential Videos with Verified Subjects and Matching Posters -->
       <div class="video-grid-8">
 
         <!-- Video 1: Contemporary living room walkthrough -->
@@ -670,7 +889,7 @@
       </div>
     </section>
 
-    <!-- Inspiration Gallery: Ideas for Spaces That Feel Like Home -->
+    <!-- Residential Inspiration Gallery: Ideas for Spaces That Feel Like Home -->
     <section class="inspiration-section wrap" id="inspiration">
       <div class="section-head">
         <div class="head-lead">
@@ -741,6 +960,9 @@
 
     <!-- 07 / CONTACT & CLOSING SECTION -->
     <section class="contact-section wrap" id="contact">
+      <div class="contact-bg-scrim" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2000&q=85');"></div>
+      <div class="contact-overlay-layer"></div>
+
       <div class="contact-container">
         
         <div class="contact-header-block">
