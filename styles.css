@@ -620,66 +620,9 @@ img {
    ========================================================================== */
 
 .about-section {
-  position: relative;
-  overflow: hidden;
   padding-top: 110px;
   padding-bottom: 110px;
   background: var(--ivory);
-}
-
-/* Section Background Visual Scrims & Light Luxury Overlays */
-.about-bg-scrim,
-.collections-bg-scrim,
-.showcase-bg-scrim,
-.craft-bg-scrim,
-.why-bg-scrim {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.14;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.about-overlay-layer,
-.collections-overlay-layer,
-.showcase-overlay-layer,
-.craft-overlay-layer,
-.why-overlay-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.about-overlay-layer {
-  background: linear-gradient(180deg, rgba(248, 246, 241, 0.94) 0%, rgba(238, 231, 219, 0.96) 100%);
-}
-
-.collections-overlay-layer {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 246, 241, 0.96) 100%);
-}
-
-.showcase-overlay-layer {
-  background: linear-gradient(180deg, rgba(248, 246, 241, 0.93) 0%, rgba(238, 231, 219, 0.96) 100%);
-}
-
-.craft-overlay-layer {
-  background: linear-gradient(180deg, rgba(248, 246, 241, 0.94) 0%, rgba(238, 231, 219, 0.96) 100%);
-}
-
-.why-overlay-layer {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 246, 241, 0.96) 100%);
-}
-
-.about-container,
-.collections-container,
-.showcase-container,
-.craft-container,
-.why-container {
-  position: relative;
-  z-index: 3;
 }
 
 /* 25+ Years Experience Banner */
@@ -951,8 +894,6 @@ img {
    ========================================================================== */
 
 .collections-section {
-  position: relative;
-  overflow: hidden;
   padding-top: 110px;
   padding-bottom: 110px;
   background: var(--white);
@@ -1172,74 +1113,10 @@ img {
 }
 
 .card-content {
-  position: relative;
-  overflow: hidden;
   padding: 32px 34px 34px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-}
-
-.card-content-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.12;
-  z-index: 1;
-  pointer-events: none;
-  transition: opacity var(--transition-fast), transform 0.6s ease;
-}
-
-.collection-card:hover .card-content-bg {
-  opacity: 0.18;
-  transform: scale(1.03);
-}
-
-.card-content-scrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(248, 246, 241, 0.91) 0%, rgba(248, 246, 241, 0.96) 100%);
-  z-index: 2;
-  pointer-events: none;
-}
-
-.card-content-inner {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.card-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-top: auto;
-  padding-top: 18px;
-}
-
-.col-video-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--walnut);
-  text-decoration: none;
-  padding: 8px 14px;
-  background: var(--cream);
-  border: 1px solid var(--sand);
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
-}
-
-.col-video-link:hover {
-  background: var(--walnut);
-  color: var(--white);
-  border-color: var(--walnut);
 }
 
 .card-meta {
@@ -1405,8 +1282,6 @@ img {
    ========================================================================== */
 
 .video-showcase-section {
-  position: relative;
-  overflow: hidden;
   padding-top: 110px;
   padding-bottom: 110px;
   background: var(--cream);
@@ -1425,7 +1300,6 @@ img {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  scroll-margin-top: 100px;
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
@@ -1517,8 +1391,6 @@ img {
    ========================================================================== */
 
 .craft-section {
-  position: relative;
-  overflow: hidden;
   padding-top: 110px;
   padding-bottom: 110px;
   background: var(--ivory);
@@ -1606,8 +1478,6 @@ img {
    ========================================================================== */
 
 .why-us-section {
-  position: relative;
-  overflow: hidden;
   padding-top: 110px;
   padding-bottom: 110px;
   background: var(--white);
@@ -2205,35 +2075,11 @@ img {
   color: var(--white);
 }
 
-.modal-media-box {
-  position: relative;
-  min-height: 380px;
-  background-color: var(--sand);
-  overflow: hidden;
-}
-
 .modal-photo {
-  position: absolute;
-  inset: 0;
+  min-height: 380px;
   background-size: cover;
   background-position: center;
   background-color: var(--sand);
-  transition: opacity 0.3s ease;
-}
-
-.modal-video {
-  display: none;
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 2;
-  background: #251D18;
-}
-
-.modal-video.active {
-  display: block;
 }
 
 .modal-copy {
@@ -2374,8 +2220,7 @@ img {
     overflow-y: auto;
   }
 
-  .modal-photo,
-  .modal-media-box {
+  .modal-photo {
     min-height: 240px;
   }
 }
