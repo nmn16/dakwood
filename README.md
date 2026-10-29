@@ -11,9 +11,12 @@ Responsive frontend concept using plain HTML, CSS and JavaScript.
 - Responsive landing page in charcoal, purple and gold.
 - Company overview for Dakwood Furniture & Interiors and Kenchain Groups.
 - Dedicated positioning section explaining the intended strengths of the partnership: coordinated furniture and interior choices, manufacturing-backed product capability, cross-category applications, and material/finish focus.
-- Interior gallery for hotel lobbies, guest rooms, restaurants, workplaces and residential spaces.
-- Category filters and project detail modals.
-- Five embedded HTML5 video players for interior reference footage.
+- Product collections for Wall & Roof Panels, Showcases & Display Units, TV Stands & Entertainment Units, Kitchen Stands & Storage, and Wardrobes & Built-in Storage.
+- Dedicated Japanese-Inspired Interiors inspiration gallery.
+- 25+ Years of Industry Experience highlight with verified attribution.
+- Manufacturing and craftsmanship section: From Material to Finished Furniture.
+- Category filters and interactive detail modals.
+- Five embedded HTML5 video players featuring kitchen cabinetry, wardrobes, wall panels, TV walls, and residential spaces.
 - Mobile navigation.
 
 ## Accuracy notes
