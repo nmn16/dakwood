@@ -9,3 +9,7 @@ function notify(msg){toast.textContent=msg;toast.classList.add('show');clearTime
 async function copy(text,msg){try{await navigator.clipboard.writeText(text);notify(msg)}catch{const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();const ok=document.execCommand('copy');t.remove();notify(ok?msg:'Copy was blocked by your browser')}}
 $('#copyScene').addEventListener('click',()=>copy(sceneText,'Scene text copied'));
 $('#menu').addEventListener('click',()=>$('#nav').classList.toggle('open'));$$('#nav a').forEach(a=>a.addEventListener('click',()=>$('#nav').classList.remove('open')));
+const slides=$$('.hero-slide'), dots=$$('.hero-dot');let currentSlide=0, slideTimer;
+function setSlide(index){if(!slides.length)return;currentSlide=(index+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('active',i===currentSlide));dots.forEach((d,i)=>d.classList.toggle('active',i===currentSlide));}
+function startSlideTimer(){clearInterval(slideTimer);slideTimer=setInterval(()=>setSlide(currentSlide+1),5000);}
+if(slides.length){dots.forEach((dot,i)=>dot.addEventListener('click',()=>{setSlide(i);startSlideTimer();}));$('#heroPrev')?.addEventListener('click',()=>{setSlide(currentSlide-1);startSlideTimer();});$('#heroNext')?.addEventListener('click',()=>{setSlide(currentSlide+1);startSlideTimer();});$('#home')?.addEventListener('mouseenter',()=>clearInterval(slideTimer));$('#home')?.addEventListener('mouseleave',()=>startSlideTimer());startSlideTimer();}
