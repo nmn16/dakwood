@@ -41,6 +41,53 @@
         caption: "05 · COORDINATED RESIDENTIAL LIVING",
         url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=88"
       }
+    ],
+    collections: {
+      "panels": {
+        id: "col-panels",
+        title: "Wall & Roof Panels",
+        videoUrl: "https://videos.pexels.com/video-files/7034444/7034444-uhd_2160_3840_25fps.mp4",
+        posterUrl: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=85",
+        bgUrl: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85"
+      },
+      "showcases": {
+        id: "col-showcases",
+        title: "Showcases & Display Units",
+        videoUrl: "https://videos.pexels.com/video-files/7034438/7034438-uhd_2160_3840_25fps.mp4",
+        posterUrl: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1000&q=85",
+        bgUrl: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=85"
+      },
+      "tv-units": {
+        id: "col-tv-units",
+        title: "TV Stands & Entertainment Units",
+        videoUrl: "https://videos.pexels.com/video-files/6969873/6969873-uhd_2160_3840_25fps.mp4",
+        posterUrl: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=85",
+        bgUrl: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1200&q=85"
+      },
+      "kitchens": {
+        id: "col-kitchens",
+        title: "Kitchen Stands & Storage",
+        videoUrl: "https://videos.pexels.com/video-files/7578546/7578546-uhd_2160_3840_30fps.mp4",
+        posterUrl: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=85",
+        bgUrl: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=85"
+      },
+      "wardrobes": {
+        id: "col-wardrobes",
+        title: "Wardrobes & Built-in Storage",
+        videoUrl: "https://videos.pexels.com/video-files/6969864/6969864-uhd_2160_3840_25fps.mp4",
+        posterUrl: "https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=1000&q=85",
+        bgUrl: "https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=1200&q=85"
+      }
+    },
+    videos: [
+      { id: "video-1", collection: "panels", title: "Wall Panels & Ceiling Design", src: "https://videos.pexels.com/video-files/7034444/7034444-uhd_2160_3840_25fps.mp4" },
+      { id: "video-2", collection: "showcases", title: "Showcases, Shelves & Display Cabinets", src: "https://videos.pexels.com/video-files/7034438/7034438-uhd_2160_3840_25fps.mp4" },
+      { id: "video-3", collection: "tv-units", title: "TV Stands & Entertainment Walls", src: "https://videos.pexels.com/video-files/6969873/6969873-uhd_2160_3840_25fps.mp4" },
+      { id: "video-4", collection: "kitchens", title: "Modern Modular Kitchen Showcase", src: "https://videos.pexels.com/video-files/7578546/7578546-uhd_2160_3840_30fps.mp4" },
+      { id: "video-5", collection: "wardrobes", title: "Custom Wardrobes & Built-In Storage", src: "https://videos.pexels.com/video-files/6969864/6969864-uhd_2160_3840_25fps.mp4" },
+      { id: "video-6", collection: "living-room", title: "Contemporary Living Room Walkthrough", src: "https://videos.pexels.com/video-files/34955049/14806900_3840_2160_50fps.mp4" },
+      { id: "video-7", collection: "craft", title: "Craftsmanship & Cabinet Assembly", src: "https://videos.pexels.com/video-files/5725965/5725965-uhd_2160_3840_25fps.mp4" },
+      { id: "video-8", collection: "full-interior", title: "Complete Home Interior Walkthrough", src: "https://videos.pexels.com/video-files/7034451/7034451-uhd_2160_3840_25fps.mp4" }
     ]
   };
 
@@ -61,6 +108,8 @@
   const modalDescription = $('#modalDescription');
   const modalCategory = $('#modalCategory');
   const modalPhoto = $('#modalPhoto');
+  const modalVideo = $('#modalVideo');
+  const modalVideoToggle = $('#modalVideoToggle');
   const toast = $('#toast');
   const copyBtn = $('#copyScene');
   const contactForm = $('#contactForm');
@@ -359,9 +408,9 @@
   });
 
   /* ==========================================================================
-     6. Accessible Lightbox Modal
+     6. Accessible Lightbox Modal (Photo & Video Supported)
      ========================================================================== */
-  function openModal(title, category, description, imageUrl) {
+  function openModal(title, category, description, imageUrl, videoUrl) {
     if (!modal) return;
     lastActiveElement = document.activeElement;
 
@@ -370,6 +419,25 @@
     if (modalDescription) modalDescription.textContent = description;
     if (modalPhoto && imageUrl) {
       modalPhoto.style.backgroundImage = `url("${imageUrl}")`;
+      modalPhoto.style.opacity = '1';
+    }
+
+    if (modalVideo) {
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+      modalVideo.classList.remove('active');
+      if (videoUrl) {
+        modalVideo.src = videoUrl;
+        if (modalVideoToggle) {
+          modalVideoToggle.style.display = 'inline-flex';
+          modalVideoToggle.textContent = '▷ Watch Video Footage';
+        }
+      } else {
+        modalVideo.src = '';
+        if (modalVideoToggle) {
+          modalVideoToggle.style.display = 'none';
+        }
+      }
     }
 
     activeModalData = `${title}\n${category ? category + ' · ' : ''}${description}`;
@@ -388,17 +456,51 @@
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
 
+    if (modalVideo) {
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+      modalVideo.classList.remove('active');
+      modalVideo.src = '';
+    }
+    if (modalPhoto) {
+      modalPhoto.style.opacity = '1';
+    }
+    if (modalVideoToggle) {
+      modalVideoToggle.textContent = '▷ Watch Video Footage';
+      modalVideoToggle.style.display = 'none';
+    }
+
     if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
       lastActiveElement.focus();
     }
   }
 
-  // Collection modal triggers (using the current active slide of the card)
+  if (modalVideoToggle) {
+    modalVideoToggle.addEventListener('click', () => {
+      if (!modalVideo) return;
+      const isVideoActive = modalVideo.classList.contains('active');
+      if (isVideoActive) {
+        modalVideo.pause();
+        modalVideo.classList.remove('active');
+        if (modalPhoto) modalPhoto.style.opacity = '1';
+        modalVideoToggle.textContent = '▷ Watch Video Footage';
+      } else {
+        modalVideo.classList.add('active');
+        if (modalPhoto) modalPhoto.style.opacity = '0';
+        modalVideo.play().catch(() => {});
+        modalVideoToggle.textContent = '▧ View High-Res Image';
+      }
+    });
+  }
+
+  // Collection modal triggers (using the current active slide of the card and mapped video)
   $$('.open-modal-btn, .lightbox-trigger').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       const card = btn.closest('.collection-card');
       const box = card ? $('.product-carousel-box', card) : null;
+      const catKey = card ? card.dataset.category : '';
+      const mappedCollection = ASSET_CATALOG.collections[catKey];
       let imgSrc = '';
       let slideCaption = '';
 
@@ -417,7 +519,8 @@
         btn.dataset.title + slideCaption,
         btn.dataset.category,
         btn.dataset.description,
-        imgSrc
+        imgSrc,
+        mappedCollection ? mappedCollection.videoUrl : ''
       );
     });
   });
